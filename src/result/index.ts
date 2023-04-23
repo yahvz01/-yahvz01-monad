@@ -1,4 +1,5 @@
 export class Result<T, E> {
+    private _isSuccess : boolean = true
     private _value?: T;
     private _error?: E;
   
@@ -6,26 +7,34 @@ export class Result<T, E> {
   
     static success<T>(value: T): Result<T, never> {
         const result = new Result<T, never>();
+        result._isSuccess = true;
         result._value = value;
+        return result;
+    }
+
+    static emptyButSucccess<T>() : Result<never, never> {
+        const result = new Result<never, never>();
+        result._isSuccess = true;
         return result;
     }
   
     static failure<E>(error: E): Result<never, E> {
         const result = new Result<never, E>();
+        result._isSuccess = false;
         result._error = error;
         return result;
     }
   
     isFailure(): boolean {
-        return this._error !== undefined;
+        return !this._isSuccess;
     }
   
     isSuccess(): boolean {
-        return this._value !== undefined;
+        return this._isSuccess;
     }
   
     getValue(): T {
-        if (this._value === undefined) {
+        if (this._isSuccess || this._value === undefined) {
             throw new Error('Result does not contain a value');
         }
     

@@ -1,6 +1,6 @@
 {
   "name": "@yahvz01/monad",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "monad",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -9,7 +9,7 @@
     "test": "jest"
 
   },
-  "author": "",
+  "author": "yahvz01@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.1",
