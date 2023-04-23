@@ -1,10 +1,12 @@
 export declare class Optional<T> {
     private _value?;
-    constructor(value?: T);
-    isPresent(): boolean;
+    static of<T>(value: T): Optional<T>;
+    static empty<T>(): Optional<T>;
+    private constructor();
+    get isPresent(): boolean;
     get(): T;
     orElse(defaultValue: T): T;
-    map<U>(fn: (value: T) => U): Optional<U>;
-    flatMap<U>(fn: (value: T) => Optional<U>): Optional<U>;
+    map<U>(func: (value: T) => U): Optional<U>;
+    flatMap<U>(func: (value: T) => Optional<U>): Optional<U>;
 }
 //# sourceMappingURL=index.d.ts.map

@@ -39,18 +39,18 @@ class Result {
             return onError(this._error);
         }
     }
-    map(fn) {
+    map(func) {
         if (this._value !== undefined) {
-            const newValue = fn(this._value);
+            const newValue = func(this._value);
             return Result.success(newValue);
         }
         else {
             return Result.failure(this._error);
         }
     }
-    flatMap(fn) {
+    flatMap(func) {
         if (this._value !== undefined) {
-            const newResult = fn(this._value);
+            const newResult = func(this._value);
             if (newResult.isFailure()) {
                 return Result.failure(newResult.getError());
             }

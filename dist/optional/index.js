@@ -2,10 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Optional = void 0;
 class Optional {
+    static of(value) {
+        return new Optional(value);
+    }
+    static empty() {
+        return new Optional();
+    }
     constructor(value) {
         this._value = value;
     }
-    isPresent() {
+    get isPresent() {
         return this._value !== undefined;
     }
     get() {
@@ -22,18 +28,18 @@ class Optional {
             return this._value;
         }
     }
-    map(fn) {
+    map(func) {
         if (this._value !== undefined) {
-            const newValue = fn(this._value);
+            const newValue = func(this._value);
             return new Optional(newValue);
         }
         else {
             return new Optional();
         }
     }
-    flatMap(fn) {
+    flatMap(func) {
         if (this._value !== undefined) {
-            const newOptional = fn(this._value);
+            const newOptional = func(this._value);
             return newOptional;
         }
         else {

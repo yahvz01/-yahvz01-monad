@@ -1,11 +1,22 @@
+
+
+
 export class Optional<T> {
     private _value?: T;
+
+    static of<T>( value : T ) : Optional<T> {
+        return new Optional(value);
+    }
+
+    static empty<T>() : Optional<T> {
+        return new Optional<T>();
+    }
   
-    constructor(value?: T) {
+    private constructor(value?: T) {
       this._value = value;
     }
   
-    isPresent(): boolean {
+    get isPresent(): boolean {
       return this._value !== undefined;
     }
   

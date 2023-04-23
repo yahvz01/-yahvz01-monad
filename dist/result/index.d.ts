@@ -9,7 +9,7 @@ export declare class Result<T, E> {
     getValue(): T;
     getError(): E;
     fold<U>(onSuccess: (value: T) => U, onError: (error: E) => U): U;
-    map<U>(fn: (value: T) => U): Result<U, E>;
-    flatMap<U, F>(fn: (value: T) => Result<U, F>): Result<U, E | F>;
+    map<U>(func: (value: T) => U): Result<U, E>;
+    flatMap<U, F>(func: (value: T) => Result<U, F>): Result<U, E | F>;
 }
 //# sourceMappingURL=index.d.ts.map
