@@ -1,0 +1,13 @@
+{
+  "name": "@yahvz01/monad",
+  "version": "0.1.1",
+  "description": "monad",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build" : "tsc"
+  },
+  "author": "",
+  "license": "ISC"
+}
