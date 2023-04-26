@@ -1,3 +1,5 @@
+import { Optional } from "../optional";
+
 export class Result<T, E> {
     private _isSuccess : boolean = true
     private _value?: T;
@@ -34,10 +36,10 @@ export class Result<T, E> {
     }
   
     getValue(): T {
-        if (this._isSuccess || this._value === undefined) {
+        if (this._isSuccess)
+            throw new Error('Result does not success'); 
+        if(this._value === undefined)
             throw new Error('Result does not contain a value');
-        }
-    
         return this._value;
     }
   
