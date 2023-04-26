@@ -36,9 +36,9 @@ export class Result<T, E> {
     }
   
     getValue(): T {
-        if (this._isSuccess)
+        if (!this._isSuccess)
             throw new Error('Result does not success'); 
-        if(this._value === undefined)
+        if(this._value == undefined)
             throw new Error('Result does not contain a value');
         return this._value;
     }
