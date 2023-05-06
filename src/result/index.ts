@@ -27,11 +27,11 @@ export class Result<T, E> {
         return result;
     }
   
-    isFailure(): boolean {
+    get isFailure(): boolean {
         return !this._isSuccess;
     }
   
-    isSuccess(): boolean {
+    get isSuccess(): boolean {
         return this._isSuccess;
     }
   
