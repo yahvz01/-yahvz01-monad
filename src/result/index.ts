@@ -70,7 +70,7 @@ export class Result<T, E> {
     flatMap<U, F>(func: (value: T) => Result<U, F>): Result<U, E | F> {
         if (this._value !== undefined) {
             const newResult = func(this._value);
-            if (newResult.isFailure()) {
+            if (newResult.isFailure) {
                 return Result.failure(newResult.getError() as E | F);
             } else {
                 return Result.success(newResult.getValue());
